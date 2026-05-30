@@ -18,7 +18,7 @@ COPY server/package.json ./server/package.json
 COPY server/package-lock.json* ./server/
 
 WORKDIR /app/server
-RUN npm install --no-audit --no-fund
+RUN npm install --no-audit --no-fund --include=dev
 
 # Now copy the rest of the server source.
 COPY server/tsconfig.json ./tsconfig.json
