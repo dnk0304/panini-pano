@@ -7,36 +7,98 @@ import fs from 'node:fs';
 import { config } from '../config';
 
 /**
- * Idempotent seeder. Inserts two placeholder bundles + a handful of prints.
+ * Idempotent seeder for the REAL PaniniPano catalog.
  *
- * SHAPE-FROZEN for T11: when T8 produces real vintage art, T11 swaps
- * `sample-art/*.jpg` references for real generated PNGs but keeps the
- * same `bundles` + `prints` schema. T2 marketing copy plugs into title/
- * description fields.
+ * Source of truth: <staticRoot>/images/bundles/manifest.json — emitted by
+ * the art pipeline. We read it on every run so adding/renaming prints
+ * never requires touching this file.
+ *
+ * Marketing copy (title, tagline, price) is sourced from the static
+ * bundle HTML pages (and verified against the data-bundle-price-cents
+ * attributes those pages render). Kept inline here because the static
+ * site is the customer-facing canon, not a runtime dependency of the
+ * server.
+ *
+ * Safe to run on every boot:
+ *   - INSERT ... ON CONFLICT(slug)/UNIQUE(bundle_id, slug) DO UPDATE
+ *   - Wrapped in a single transaction
+ *   - No destructive operations
  */
-function seed(): void {
+
+interface ManifestPrint {
+  n: number;
+  slug: string;
+  latin: string;
+  master: string; // path relative to images/bundles/
+}
+
+interface ManifestBundle {
+  slug: string;
+  name: string;
+  count: number;
+  prints: ManifestPrint[];
+  cover: string; // path relative to images/bundles/
+}
+
+interface Manifest {
+  generated_at: string;
+  bundles: ManifestBundle[];
+}
+
+/**
+ * Marketing overlay keyed by bundle slug. Values match the canonical
+ * static HTML at bundles/<slug>.html (title + tagline + price-cents).
+ */
+const MARKETING: Record<
+  string,
+  { title: string; description: string; priceCents: number }
+> = {
+  'antique-cosmos': {
+    title: 'Antique Cosmos',
+    description:
+      'Turn your bedroom into a vintage observatory — 10 antique celestial prints. Aged star maps, moon phases & copperplate planetary plates with dark-academia atmosphere.',
+    priceCents: 1700,
+  },
+  'botanists-kitchen': {
+    title: "The Botanist's Kitchen",
+    description:
+      'Fill your whole kitchen wall in one download — 12 cohesive antique herbarium plates on aged paper. Cottagecore warmth, framed today.',
+    priceCents: 1900,
+  },
+};
+
+/**
+ * Resolve a print's display title from the manifest entry.
+ * Prefers the Latin name (matches the static gallery captions);
+ * falls back to a Title-Cased slug if latin is missing.
+ */
+function deriveTitle(p: ManifestPrint): string {
+  if (p.latin && p.latin.trim()) return p.latin.trim();
+  return p.slug
+    .split('-')
+    .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
+    .join(' ');
+}
+
+function loadManifest(): Manifest {
+  const manifestPath = path.join(config.staticRoot, 'images', 'bundles', 'manifest.json');
+  if (!fs.existsSync(manifestPath)) {
+    throw new Error(`bundle manifest not found at ${manifestPath}`);
+  }
+  const raw = fs.readFileSync(manifestPath, 'utf8');
+  const parsed = JSON.parse(raw) as Manifest;
+  if (!parsed.bundles || !Array.isArray(parsed.bundles)) {
+    throw new Error(`bundle manifest at ${manifestPath} is malformed (no bundles[])`);
+  }
+  return parsed;
+}
+
+export function seed(): void {
   runMigrations();
   const db = getDb();
 
-  const sampleArtDir = path.join(__dirname, '..', '..', 'sample-art');
-  fs.mkdirSync(sampleArtDir, { recursive: true });
-
-  // Generate trivial placeholder JPGs if missing so packaging tests work
-  // out of the box. Real art replaces these at T11.
-  const placeholderPaths = [
-    path.join(sampleArtDir, 'placeholder-1.txt'),
-    path.join(sampleArtDir, 'placeholder-2.txt'),
-    path.join(sampleArtDir, 'placeholder-3.txt'),
-  ];
-  for (const p of placeholderPaths) {
-    if (!fs.existsSync(p)) {
-      fs.writeFileSync(
-        p,
-        'Replace this file with a 300+ DPI master image (PNG or JPG). ' +
-          'See server/src/services/pdf-packager.ts for sizing rules.\n',
-      );
-    }
-  }
+  const manifest = loadManifest();
+  const bundlesRoot = path.join(config.staticRoot, 'images', 'bundles');
 
   const upsertBundle = db.prepare(`
     INSERT INTO bundles (id, slug, title, description, cover_image, price_cents, currency, is_active)
@@ -44,7 +106,10 @@ function seed(): void {
     ON CONFLICT(slug) DO UPDATE SET
       title = excluded.title,
       description = excluded.description,
+      cover_image = excluded.cover_image,
       price_cents = excluded.price_cents,
+      currency = excluded.currency,
+      is_active = 1,
       updated_at = datetime('now')
     RETURNING id
   `);
@@ -55,77 +120,80 @@ function seed(): void {
     ON CONFLICT(bundle_id, slug) DO UPDATE SET
       title = excluded.title,
       source_path = excluded.source_path,
+      sort_order = excluded.sort_order,
       updated_at = datetime('now')
   `);
 
-  const placeholderBundles: Array<{
-    slug: string;
-    title: string;
-    description: string;
-    cover_image: string | null;
-    price_cents: number;
-    prints: Array<{ slug: string; title: string; source_path: string }>;
-  }> = [
-    {
-      slug: 'vintage-botanicals',
-      title: '[PLACEHOLDER] Vintage Botanicals',
-      description:
-        'Placeholder bundle — real T2 copy + T8 art replaces this at T11. 12 prints, each delivered at 6 print sizes (A4, A3, US Letter, 12x16, 16x20, 18x24).',
-      cover_image: null,
-      price_cents: 1900,
-      prints: [
-        { slug: 'fern-i', title: 'Fern I', source_path: path.join(sampleArtDir, 'placeholder-1.txt') },
-        { slug: 'fern-ii', title: 'Fern II', source_path: path.join(sampleArtDir, 'placeholder-2.txt') },
-        { slug: 'fern-iii', title: 'Fern III', source_path: path.join(sampleArtDir, 'placeholder-3.txt') },
-      ],
-    },
-    {
-      slug: 'fading-films',
-      title: '[PLACEHOLDER] Fading Films',
-      description:
-        'Placeholder bundle — real T2 copy + T8 art replaces this at T11. 12 prints, each delivered at 6 print sizes.',
-      cover_image: null,
-      price_cents: 2400,
-      prints: [
-        { slug: 'cinema-i', title: 'Cinema I', source_path: path.join(sampleArtDir, 'placeholder-1.txt') },
-        { slug: 'cinema-ii', title: 'Cinema II', source_path: path.join(sampleArtDir, 'placeholder-2.txt') },
-      ],
-    },
-  ];
+  let bundlesSeeded = 0;
+  let printsSeeded = 0;
+  let printsMissingMaster = 0;
 
   const tx = db.transaction(() => {
-    for (const b of placeholderBundles) {
-      const bundleId = newId();
+    for (const mb of manifest.bundles) {
+      const marketing = MARKETING[mb.slug];
+      if (!marketing) {
+        logger.warn(
+          { slug: mb.slug },
+          'manifest bundle has no marketing overlay — skipping',
+        );
+        continue;
+      }
+
       const row = upsertBundle.get({
-        id: bundleId,
-        slug: b.slug,
-        title: b.title,
-        description: b.description,
-        cover_image: b.cover_image,
-        price_cents: b.price_cents,
+        id: newId(),
+        slug: mb.slug,
+        title: marketing.title,
+        description: marketing.description,
+        // Relative-under-STATIC_ROOT, per schema.sql convention.
+        cover_image: `images/bundles/${mb.cover}`,
+        price_cents: marketing.priceCents,
         currency: 'USD',
       }) as { id: string };
 
-      let sortOrder = 0;
-      for (const p of b.prints) {
+      // Sort prints by manifest `n` so order is deterministic regardless
+      // of JSON key order.
+      const orderedPrints = [...mb.prints].sort((a, b) => a.n - b.n);
+
+      for (const p of orderedPrints) {
+        const sourcePath = path.join(bundlesRoot, p.master);
+        if (!fs.existsSync(sourcePath)) {
+          // Don't crash — log + skip dimension hardening. Packager fails
+          // loudly later if a master is genuinely missing.
+          printsMissingMaster++;
+          logger.warn(
+            { bundle: mb.slug, print: p.slug, sourcePath },
+            'master image missing on disk at seed time',
+          );
+        }
+
         upsertPrint.run({
           id: newId(),
           bundle_id: row.id,
           slug: p.slug,
-          title: p.title,
-          source_path: p.source_path,
-          // Placeholder dims — real masters will populate these accurately.
+          title: deriveTitle(p),
+          source_path: sourcePath,
+          // Real dimensions live in the master file; packager reads them
+          // via sharp. We store conservative defaults so legacy queries
+          // that read these columns don't trip.
           source_width_px: 6000,
           source_height_px: 8000,
-          sort_order: sortOrder++,
+          sort_order: p.n,
         });
+        printsSeeded++;
       }
+      bundlesSeeded++;
     }
   });
   tx();
 
   logger.info(
-    { bundles: placeholderBundles.length, dataDir: config.dataDir },
+    {
+      bundles: bundlesSeeded,
+      prints: printsSeeded,
+      printsMissingMaster,
+      manifestGeneratedAt: manifest.generated_at,
+      dataDir: config.dataDir,
+    },
     'seed complete',
   );
 }

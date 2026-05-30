@@ -10,6 +10,7 @@ import { config } from './config';
 import { logger } from './lib/logger';
 import { getDb } from './db';
 import { runMigrations } from './db/migrate';
+import { seed } from './db/seed';
 
 import { createBasicAuthMiddleware } from './middleware/basic-auth';
 import { errorHandler } from './middleware/error';
@@ -129,6 +130,23 @@ function start(): void {
   // Apply migrations on boot. Idempotent.
   runMigrations();
   getDb(); // warm-open
+
+  // Seed the real catalog on boot. Idempotent (UPSERTs keyed on slug /
+  // (bundle_id, slug)). Set SEED_ON_BOOT=false to skip — useful for
+  // recovery scenarios where ops wants to mutate rows manually first.
+  const seedOnBoot = process.env['SEED_ON_BOOT'] !== 'false';
+  if (seedOnBoot) {
+    try {
+      seed();
+    } catch (err) {
+      // Don't take the process down on seed failure — log loudly and
+      // continue. The API will surface bundle_not_found for affected
+      // slugs, which is the same failure mode we already monitor for.
+      logger.error({ err }, 'seed-on-boot failed');
+    }
+  } else {
+    logger.warn('SEED_ON_BOOT=false — skipping catalog seed on boot');
+  }
 
   const app = buildApp();
   const server = app.listen(config.port, () => {
