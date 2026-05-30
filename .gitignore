@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+server/node_modules/
+
+# Server build output
+server/dist/
+
+# Server runtime data (sqlite, uploads, etc.)
+server/data/
+
+# Logs
+*.log
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# Editor / OS noise
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.bak
+*.tmp
+
+# Forge / planning artifacts
+FORGE_PLAN.md
+server/FORGE_PLAN.md
+
+# T12: heavy assets that don't ship with the wall-art staging preview.
+# - Coloring books/: separate product line, not shown on the staging site.
+# - videos/: marketing videos, not on staging.
+# - images/generated/: book-promo videos + coloring-book gen output (linked
+#   from index.html marketing section — Ken accepts 404s on staging).
+# - images/bundles/*/prints/*-{2x3,3x4,iso,master}.png: full-res print
+#   sources + non-display crops. Only *-4x5.png and cover.png are rendered
+#   by the shipped pages. Full-res masters are the PRODUCT (stored
+#   separately, delivered on order); the PDF packager is only reachable
+#   via Whop webhook, which staging does not have.
+Coloring books/
+videos/
+images/generated/
+images/bundles/*/prints/*-2x3.png
+images/bundles/*/prints/*-3x4.png
+images/bundles/*/prints/*-iso.png
+images/bundles/*/prints/*-master.png

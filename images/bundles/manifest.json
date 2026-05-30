@@ -1,0 +1,285 @@
+{
+  "generated_at": "2026-05-30T08:12:45.312Z",
+  "bundles": [
+    {
+      "slug": "botanists-kitchen",
+      "name": "The Botanist's Kitchen",
+      "count": 12,
+      "prints": [
+        {
+          "n": 1,
+          "slug": "rosemary",
+          "latin": "Rosmarinus officinalis",
+          "master": "botanists-kitchen/prints/01-rosemary-master.png",
+          "crops": {
+            "2x3": "botanists-kitchen/prints/01-rosemary-2x3.png",
+            "3x4": "botanists-kitchen/prints/01-rosemary-3x4.png",
+            "4x5": "botanists-kitchen/prints/01-rosemary-4x5.png",
+            "iso": "botanists-kitchen/prints/01-rosemary-iso.png"
+          }
+        },
+        {
+          "n": 2,
+          "slug": "sage",
+          "latin": "Salvia officinalis",
+          "master": "botanists-kitchen/prints/02-sage-master.png",
+          "crops": {
+            "2x3": "botanists-kitchen/prints/02-sage-2x3.png",
+            "3x4": "botanists-kitchen/prints/02-sage-3x4.png",
+            "4x5": "botanists-kitchen/prints/02-sage-4x5.png",
+            "iso": "botanists-kitchen/prints/02-sage-iso.png"
+          }
+        },
+        {
+          "n": 3,
+          "slug": "thyme-oregano",
+          "latin": "Thymus et Origanum",
+          "master": "botanists-kitchen/prints/03-thyme-oregano-master.png",
+          "crops": {
+            "2x3": "botanists-kitchen/prints/03-thyme-oregano-2x3.png",
+            "3x4": "botanists-kitchen/prints/03-thyme-oregano-3x4.png",
+            "4x5": "botanists-kitchen/prints/03-thyme-oregano-4x5.png",
+            "iso": "botanists-kitchen/prints/03-thyme-oregano-iso.png"
+          }
+        },
+        {
+          "n": 4,
+          "slug": "lavender",
+          "latin": "Lavandula angustifolia",
+          "master": "botanists-kitchen/prints/04-lavender-master.png",
+          "crops": {
+            "2x3": "botanists-kitchen/prints/04-lavender-2x3.png",
+            "3x4": "botanists-kitchen/prints/04-lavender-3x4.png",
+            "4x5": "botanists-kitchen/prints/04-lavender-4x5.png",
+            "iso": "botanists-kitchen/prints/04-lavender-iso.png"
+          }
+        },
+        {
+          "n": 5,
+          "slug": "lemon-branch",
+          "latin": "Citrus limon",
+          "master": "botanists-kitchen/prints/05-lemon-branch-master.png",
+          "crops": {
+            "2x3": "botanists-kitchen/prints/05-lemon-branch-2x3.png",
+            "3x4": "botanists-kitchen/prints/05-lemon-branch-3x4.png",
+            "4x5": "botanists-kitchen/prints/05-lemon-branch-4x5.png",
+            "iso": "botanists-kitchen/prints/05-lemon-branch-iso.png"
+          }
+        },
+        {
+          "n": 6,
+          "slug": "fig",
+          "latin": "Ficus carica",
+          "master": "botanists-kitchen/prints/06-fig-master.png",
+          "crops": {
+            "2x3": "botanists-kitchen/prints/06-fig-2x3.png",
+            "3x4": "botanists-kitchen/prints/06-fig-3x4.png",
+            "4x5": "botanists-kitchen/prints/06-fig-4x5.png",
+            "iso": "botanists-kitchen/prints/06-fig-iso.png"
+          }
+        },
+        {
+          "n": 7,
+          "slug": "olive-branch",
+          "latin": "Olea europaea",
+          "master": "botanists-kitchen/prints/07-olive-branch-master.png",
+          "crops": {
+            "2x3": "botanists-kitchen/prints/07-olive-branch-2x3.png",
+            "3x4": "botanists-kitchen/prints/07-olive-branch-3x4.png",
+            "4x5": "botanists-kitchen/prints/07-olive-branch-4x5.png",
+            "iso": "botanists-kitchen/prints/07-olive-branch-iso.png"
+          }
+        },
+        {
+          "n": 8,
+          "slug": "garlic-onion",
+          "latin": "Allium sativum et cepa",
+          "master": "botanists-kitchen/prints/08-garlic-onion-master.png",
+          "crops": {
+            "2x3": "botanists-kitchen/prints/08-garlic-onion-2x3.png",
+            "3x4": "botanists-kitchen/prints/08-garlic-onion-3x4.png",
+            "4x5": "botanists-kitchen/prints/08-garlic-onion-4x5.png",
+            "iso": "botanists-kitchen/prints/08-garlic-onion-iso.png"
+          }
+        },
+        {
+          "n": 9,
+          "slug": "chili-peppers",
+          "latin": "Capsicum annuum",
+          "master": "botanists-kitchen/prints/09-chili-peppers-master.png",
+          "crops": {
+            "2x3": "botanists-kitchen/prints/09-chili-peppers-2x3.png",
+            "3x4": "botanists-kitchen/prints/09-chili-peppers-3x4.png",
+            "4x5": "botanists-kitchen/prints/09-chili-peppers-4x5.png",
+            "iso": "botanists-kitchen/prints/09-chili-peppers-iso.png"
+          }
+        },
+        {
+          "n": 10,
+          "slug": "culinary-mushroom",
+          "latin": "Fungi culinaria",
+          "master": "botanists-kitchen/prints/10-culinary-mushroom-master.png",
+          "crops": {
+            "2x3": "botanists-kitchen/prints/10-culinary-mushroom-2x3.png",
+            "3x4": "botanists-kitchen/prints/10-culinary-mushroom-3x4.png",
+            "4x5": "botanists-kitchen/prints/10-culinary-mushroom-4x5.png",
+            "iso": "botanists-kitchen/prints/10-culinary-mushroom-iso.png"
+          }
+        },
+        {
+          "n": 11,
+          "slug": "herb-bouquet",
+          "latin": "Herbae mixtae",
+          "master": "botanists-kitchen/prints/11-herb-bouquet-master.png",
+          "crops": {
+            "2x3": "botanists-kitchen/prints/11-herb-bouquet-2x3.png",
+            "3x4": "botanists-kitchen/prints/11-herb-bouquet-3x4.png",
+            "4x5": "botanists-kitchen/prints/11-herb-bouquet-4x5.png",
+            "iso": "botanists-kitchen/prints/11-herb-bouquet-iso.png"
+          }
+        },
+        {
+          "n": 12,
+          "slug": "strawberry-berry",
+          "latin": "Fragaria et Rubus",
+          "master": "botanists-kitchen/prints/12-strawberry-berry-master.png",
+          "crops": {
+            "2x3": "botanists-kitchen/prints/12-strawberry-berry-2x3.png",
+            "3x4": "botanists-kitchen/prints/12-strawberry-berry-3x4.png",
+            "4x5": "botanists-kitchen/prints/12-strawberry-berry-4x5.png",
+            "iso": "botanists-kitchen/prints/12-strawberry-berry-iso.png"
+          }
+        }
+      ],
+      "cover": "botanists-kitchen/cover.png"
+    },
+    {
+      "slug": "antique-cosmos",
+      "name": "Antique Cosmos",
+      "count": 10,
+      "prints": [
+        {
+          "n": 1,
+          "slug": "moon-phase-chart",
+          "latin": "Phases Lunae",
+          "master": "antique-cosmos/prints/01-moon-phase-chart-master.png",
+          "crops": {
+            "2x3": "antique-cosmos/prints/01-moon-phase-chart-2x3.png",
+            "3x4": "antique-cosmos/prints/01-moon-phase-chart-3x4.png",
+            "4x5": "antique-cosmos/prints/01-moon-phase-chart-4x5.png",
+            "iso": "antique-cosmos/prints/01-moon-phase-chart-iso.png"
+          }
+        },
+        {
+          "n": 2,
+          "slug": "northern-star-map",
+          "latin": "Hemisphaerium Boreale",
+          "master": "antique-cosmos/prints/02-northern-star-map-master.png",
+          "crops": {
+            "2x3": "antique-cosmos/prints/02-northern-star-map-2x3.png",
+            "3x4": "antique-cosmos/prints/02-northern-star-map-3x4.png",
+            "4x5": "antique-cosmos/prints/02-northern-star-map-4x5.png",
+            "iso": "antique-cosmos/prints/02-northern-star-map-iso.png"
+          }
+        },
+        {
+          "n": 3,
+          "slug": "sun-solar-diagram",
+          "latin": "Systema Solare",
+          "master": "antique-cosmos/prints/03-sun-solar-diagram-master.png",
+          "crops": {
+            "2x3": "antique-cosmos/prints/03-sun-solar-diagram-2x3.png",
+            "3x4": "antique-cosmos/prints/03-sun-solar-diagram-3x4.png",
+            "4x5": "antique-cosmos/prints/03-sun-solar-diagram-4x5.png",
+            "iso": "antique-cosmos/prints/03-sun-solar-diagram-iso.png"
+          }
+        },
+        {
+          "n": 4,
+          "slug": "orrery-plate",
+          "latin": "Orrery Planetarium",
+          "master": "antique-cosmos/prints/04-orrery-plate-master.png",
+          "crops": {
+            "2x3": "antique-cosmos/prints/04-orrery-plate-2x3.png",
+            "3x4": "antique-cosmos/prints/04-orrery-plate-3x4.png",
+            "4x5": "antique-cosmos/prints/04-orrery-plate-4x5.png",
+            "iso": "antique-cosmos/prints/04-orrery-plate-iso.png"
+          }
+        },
+        {
+          "n": 5,
+          "slug": "constellation-orion",
+          "latin": "Constellatio Orionis",
+          "master": "antique-cosmos/prints/05-constellation-orion-master.png",
+          "crops": {
+            "2x3": "antique-cosmos/prints/05-constellation-orion-2x3.png",
+            "3x4": "antique-cosmos/prints/05-constellation-orion-3x4.png",
+            "4x5": "antique-cosmos/prints/05-constellation-orion-4x5.png",
+            "iso": "antique-cosmos/prints/05-constellation-orion-iso.png"
+          }
+        },
+        {
+          "n": 6,
+          "slug": "constellation-ursa",
+          "latin": "Ursa Major",
+          "master": "antique-cosmos/prints/06-constellation-ursa-master.png",
+          "crops": {
+            "2x3": "antique-cosmos/prints/06-constellation-ursa-2x3.png",
+            "3x4": "antique-cosmos/prints/06-constellation-ursa-3x4.png",
+            "4x5": "antique-cosmos/prints/06-constellation-ursa-4x5.png",
+            "iso": "antique-cosmos/prints/06-constellation-ursa-iso.png"
+          }
+        },
+        {
+          "n": 7,
+          "slug": "zodiac-wheel",
+          "latin": "Zodiacus",
+          "master": "antique-cosmos/prints/07-zodiac-wheel-master.png",
+          "crops": {
+            "2x3": "antique-cosmos/prints/07-zodiac-wheel-2x3.png",
+            "3x4": "antique-cosmos/prints/07-zodiac-wheel-3x4.png",
+            "4x5": "antique-cosmos/prints/07-zodiac-wheel-4x5.png",
+            "iso": "antique-cosmos/prints/07-zodiac-wheel-iso.png"
+          }
+        },
+        {
+          "n": 8,
+          "slug": "comet-plate",
+          "latin": "Cometae et Phaenomena",
+          "master": "antique-cosmos/prints/08-comet-plate-master.png",
+          "crops": {
+            "2x3": "antique-cosmos/prints/08-comet-plate-2x3.png",
+            "3x4": "antique-cosmos/prints/08-comet-plate-3x4.png",
+            "4x5": "antique-cosmos/prints/08-comet-plate-4x5.png",
+            "iso": "antique-cosmos/prints/08-comet-plate-iso.png"
+          }
+        },
+        {
+          "n": 9,
+          "slug": "lunar-surface",
+          "latin": "Luna Selenographia",
+          "master": "antique-cosmos/prints/09-lunar-surface-master.png",
+          "crops": {
+            "2x3": "antique-cosmos/prints/09-lunar-surface-2x3.png",
+            "3x4": "antique-cosmos/prints/09-lunar-surface-3x4.png",
+            "4x5": "antique-cosmos/prints/09-lunar-surface-4x5.png",
+            "iso": "antique-cosmos/prints/09-lunar-surface-iso.png"
+          }
+        },
+        {
+          "n": 10,
+          "slug": "celestial-globe",
+          "latin": "Globus Coelestis",
+          "master": "antique-cosmos/prints/10-celestial-globe-master.png",
+          "crops": {
+            "2x3": "antique-cosmos/prints/10-celestial-globe-2x3.png",
+            "3x4": "antique-cosmos/prints/10-celestial-globe-3x4.png",
+            "4x5": "antique-cosmos/prints/10-celestial-globe-4x5.png",
+            "iso": "antique-cosmos/prints/10-celestial-globe-iso.png"
+          }
+        }
+      ],
+      "cover": "antique-cosmos/cover.png"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+# Heavy / dev-only / generated dirs we never want in the image.
+node_modules
+server/node_modules
+server/dist
+server/data
+.git
+.gitignore
+.env
+.env.local
+.env.*.local
+*.log
+.DS_Store
+.vscode
+.idea
+
+# Existing gen scripts + their working dirs (not needed at runtime — site
+# is static). Keep them out of the image to shrink it.
+gemini-gen.js
+generate.mjs
+generate-missing-promos.mjs
+make-videos.mjs
+panini-artgen.mjs
+panini-mockupgen.mjs
+process-section.txt
+reorganize.js
+run-gen.js
+run-generation.ps1
+prompts.json
+scripts/
+serve.js
+package.json
+package-lock.json
+artgen-run2.log
+
+# Heavy generated working dirs under images/ that no shipped page links to.
+# Keep images/{bundles,covers,mockups} — those ARE referenced.
+images/peek/
+images/pdf-ready/
+images/kdp-ready-covers/
+
+# T12: assets explicitly dropped from the staging image (wall-art preview).
+# Matches .gitignore so the image stays lean even if a dev has the files
+# locally outside git tracking.
+#  - images/generated/: book-promo videos + coloring-book gen output
+#  - non-4x5 print crops + full-res masters: only *-4x5.png and cover.png
+#    are rendered by shipped pages; full-res prints are the product (stored
+#    separately, delivered on order) and the PDF packager is gated behind
+#    the Whop webhook which staging does not have
+images/generated/
+images/bundles/*/prints/*-2x3.png
+images/bundles/*/prints/*-3x4.png
+images/bundles/*/prints/*-iso.png
+images/bundles/*/prints/*-master.png
+# Coloring books/ and videos/ — their COPY lines are removed from the
+# Dockerfile, but listed here for safety if anyone reintroduces a glob COPY.
+Coloring books/
+videos/
+
+# Root-level dev docs.
+MORNING-BRIEF.md
+README.md
+FORGE_PLAN.md
+
+# Coolify / Hetzner / IDE noise.
+*.bak
+*.tmp
+*.swp
+
+# Forge plan + memory.
+FORGE_PLAN.md
+server/FORGE_PLAN.md

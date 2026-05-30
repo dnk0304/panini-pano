@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panini Pano — Vintage Wall Art, Instant Download | Printable Botanical &amp; Celestial Prints</title>
+  <meta name="description" content="Curated vintage wall art as instant high-res downloads. Antique botanical &amp; celestial prints — print any size, fits standard frames. Gallery look for a fraction of framed-store prices. Also home of Panini Pano coloring books.">
+  <meta name="keywords" content="vintage wall art, printable wall art, antique botanical print, celestial wall art, instant download art, digital print bundle, gallery wall, dark academia print, cottagecore wall art, Panini Pano, adult coloring books">
+  <meta name="author" content="Panini Pano">
+  <link rel="canonical" href="https://panini-pano.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Panini Pano — Vintage Wall Art, Instant Download">
+  <meta property="og:description" content="Curated antique botanicals, maps &amp; celestial prints. Buy, download, print any size — frame tonight.">
+  <meta property="og:image" content="images/bundles/botanists-kitchen/cover.png">
+  <meta property="og:url" content="https://panini-pano.com/">
+  <meta property="og:site_name" content="Panini Pano">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Panini Pano — Vintage Wall Art, Instant Download">
+  <meta name="twitter:description" content="Gallery-grade vintage prints. Instant download. Print any size, frame your way.">
+  <meta name="twitter:image" content="images/bundles/botanists-kitchen/cover.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">Panini Pano</a>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#bundles" data-nav-target="bundles">Wall Art</a></li>
+        <li><a href="store.html">Store</a></li>
+        <li><a href="#how" data-nav-target="how">How It Works</a></li>
+        <li><a href="#coloring" data-nav-target="coloring">Coloring</a></li>
+        <li><a href="#faq" data-nav-target="faq">FAQ</a></li>
+      </ul>
+      <button class="nav__cart" id="navCart" aria-label="Open cart" data-cart-open>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.5L21 8H6"/>
+          <circle cx="9" cy="20" r="1.4"/>
+          <circle cx="18" cy="20" r="1.4"/>
+        </svg>
+        <span class="nav__cart-count" id="navCartCount" data-cart-count>0</span>
+      </button>
+      <button class="nav__hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU OVERLAY -->
+  <div class="nav__mobile-overlay" id="mobileOverlay"></div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <video class="hero__video" autoplay muted loop playsinline>
+      <source src="images/hero-bg.mp4" type="video/mp4">
+    </video>
+    <div class="hero__overlay"></div>
+    <div class="hero__inner">
+      <div class="hero__text">
+        <span class="hero__overline">Vintage Printable Wall Art</span>
+        <h1 class="hero__headline">Vintage art for<br>your walls<span class="hero__dot">.</span></h1>
+        <p class="hero__sub">Download today, frame tonight. Curated antique botanicals, maps &amp; celestial prints — print any size, the framed-store look for a fraction of the price.</p>
+        <div class="hero__buttons">
+          <a href="#bundles" class="btn btn--primary">Shop the bundles</a>
+          <a href="#how" class="btn btn--ghost">How it works</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUNDLE SHOWCASE -->
+  <section class="bundles" id="bundles">
+    <div class="container">
+      <h2 class="section-title reveal-up">The Bundles</h2>
+      <p class="section-subtitle reveal-up">Cohesive print sets — buy once, fill a whole wall.</p>
+
+      <div class="bundle-grid reveal-up">
+
+        <article class="card bundle-card">
+          <a class="bundle-card__media" href="bundles/botanists-kitchen.html" aria-label="View The Botanist's Kitchen bundle">
+            <div class="card__img-wrap">
+              <img src="images/bundles/botanists-kitchen/cover.png" alt="The Botanist's Kitchen — vintage botanical herbarium prints, cover preview" class="card__img bundle-card__img" loading="lazy" onerror="this.classList.add('is-fallback')">
+              <span class="card__badge">12 Prints</span>
+            </div>
+          </a>
+          <div class="card__body">
+            <h3 class="card__title"><a href="bundles/botanists-kitchen.html">The Botanist's Kitchen</a></h3>
+            <p class="card__desc">Antique herbarium plates — herbs, citrus, mushrooms &amp; culinary botanicals on aged paper. Cottagecore warmth for the kitchen wall.</p>
+            <p class="card__price"><span class="card__price-now">$19</span> <span class="card__price-was">$24</span> <span class="card__price-note">intro</span></p>
+            <div class="bundle-card__actions">
+              <a href="bundles/botanists-kitchen.html" class="btn btn--ghost btn--sm">View bundle</a>
+              <!-- T7: add-to-cart -->
+              <button class="btn btn--primary btn--sm" data-cart-add data-bundle-slug="botanists-kitchen" data-bundle-title="The Botanist's Kitchen" data-bundle-price-cents="1900">Add to cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card bundle-card">
+          <a class="bundle-card__media" href="bundles/antique-cosmos.html" aria-label="View Antique Cosmos bundle">
+            <div class="card__img-wrap">
+              <img src="images/bundles/antique-cosmos/cover.png" alt="Antique Cosmos — vintage celestial &amp; astronomical prints, cover preview" class="card__img bundle-card__img" loading="lazy" onerror="this.classList.add('is-fallback')">
+              <span class="card__badge">10 Prints</span>
+            </div>
+          </a>
+          <div class="card__body">
+            <h3 class="card__title"><a href="bundles/antique-cosmos.html">Antique Cosmos</a></h3>
+            <p class="card__desc">Aged star maps, moon phases &amp; copperplate planetary plates. Dark-academia atmosphere for bedrooms &amp; studies.</p>
+            <p class="card__price"><span class="card__price-now">$17</span> <span class="card__price-was">$22</span> <span class="card__price-note">intro</span></p>
+            <div class="bundle-card__actions">
+              <a href="bundles/antique-cosmos.html" class="btn btn--ghost btn--sm">View bundle</a>
+              <!-- T7: add-to-cart -->
+              <button class="btn btn--primary btn--sm" data-cart-add data-bundle-slug="antique-cosmos" data-bundle-title="Antique Cosmos" data-bundle-price-cents="1700">Add to cart</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="bundles__store-link reveal-up"><a href="store.html">See the full store →</a></p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="how">
+    <div class="container">
+      <h2 class="section-title reveal-up">How it works</h2>
+      <p class="section-subtitle reveal-up">From download to wall in under an hour.</p>
+
+      <ol class="how-steps reveal-up">
+        <li class="how-step">
+          <span class="how-step__num">1</span>
+          <h3 class="how-step__title">Buy &amp; download instantly</h3>
+          <p class="how-step__desc">Pay once, download high-res files in seconds. No shipping, no waiting.</p>
+        </li>
+        <li class="how-step">
+          <span class="how-step__num">2</span>
+          <h3 class="how-step__title">Print any size, your way</h3>
+          <p class="how-step__desc">Home printer, local print shop, or online printer (Printful, Walmart, Mpix). 300 DPI, crisp to 24×36 in.</p>
+        </li>
+        <li class="how-step">
+          <span class="how-step__num">3</span>
+          <h3 class="how-step__title">Frame &amp; hang</h3>
+          <p class="how-step__desc">Multiple ratios included — fits standard frames. Hang it tonight.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- FRAME / SIZE EXPLAINER -->
+  <section class="frames" id="frames">
+    <div class="container">
+      <h2 class="section-title reveal-up">Sizes &amp; frames</h2>
+      <p class="section-subtitle reveal-up">Every print comes in multiple ratios — no guesswork, no cropping surprises.</p>
+
+      <div class="frame-grid reveal-up">
+        <div class="frame-card">
+          <div class="frame-card__ratio frame-card__ratio--2-3" aria-hidden="true"></div>
+          <h3 class="frame-card__name">2:3</h3>
+          <p class="frame-card__sizes">4×6, 8×12, 12×18, 16×24, 24×36 in</p>
+        </div>
+        <div class="frame-card">
+          <div class="frame-card__ratio frame-card__ratio--3-4" aria-hidden="true"></div>
+          <h3 class="frame-card__name">3:4</h3>
+          <p class="frame-card__sizes">6×8, 9×12, 12×16, 18×24 in</p>
+        </div>
+        <div class="frame-card">
+          <div class="frame-card__ratio frame-card__ratio--4-5" aria-hidden="true"></div>
+          <h3 class="frame-card__name">4:5</h3>
+          <p class="frame-card__sizes">8×10, 11×14, 16×20 in</p>
+        </div>
+        <div class="frame-card">
+          <div class="frame-card__ratio frame-card__ratio--iso" aria-hidden="true"></div>
+          <h3 class="frame-card__name">ISO / A-series</h3>
+          <p class="frame-card__sizes">A5, A4, A3, A2</p>
+        </div>
+      </div>
+
+      <p class="frames__note reveal-up">Files are 300 DPI, sized to the largest frame in each ratio family. Composition uses a safe central crop zone — every ratio looks intentional.</p>
+    </div>
+  </section>
+
+  <!-- IN CONTEXT / MOCKUPS (reuses lightbox pattern) -->
+  <section class="in-context" id="in-context">
+    <div class="container">
+      <h2 class="section-title reveal-up">On the wall</h2>
+      <p class="section-subtitle reveal-up">See the prints in real rooms — click to zoom.</p>
+
+      <div class="mockup-grid reveal-up">
+        <figure class="mockup">
+          <img src="images/mockups/botanists-kitchen-01.jpg" alt="The Botanist's Kitchen — gallery wall in a warm dining nook" class="peek-img" loading="lazy">
+          <figcaption class="mockup__caption">The Botanist's Kitchen · gallery wall</figcaption>
+        </figure>
+        <figure class="mockup">
+          <img src="images/mockups/botanists-kitchen-02.jpg" alt="The Botanist's Kitchen — framed herbarium prints above a kitchen counter" class="peek-img" loading="lazy">
+          <figcaption class="mockup__caption">The Botanist's Kitchen · kitchen counter</figcaption>
+        </figure>
+        <figure class="mockup">
+          <img src="images/mockups/antique-cosmos-01.jpg" alt="Antique Cosmos — celestial prints in a moody bedroom" class="peek-img" loading="lazy">
+          <figcaption class="mockup__caption">Antique Cosmos · bedroom</figcaption>
+        </figure>
+        <figure class="mockup">
+          <img src="images/mockups/antique-cosmos-02.jpg" alt="Antique Cosmos — framed star map above a reading nook" class="peek-img" loading="lazy">
+          <figcaption class="mockup__caption">Antique Cosmos · reading nook</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY PANINI PANO -->
+  <section class="why" id="why">
+    <div class="container">
+      <h2 class="section-title reveal-up">Why Panini Pano</h2>
+      <p class="section-subtitle reveal-up">Five reasons our prints end up on more walls.</p>
+
+      <div class="why-grid reveal-up">
+        <div class="why-card">
+          <h3 class="why-card__title">Instant</h3>
+          <p class="why-card__desc">Buy, download, decorate today. No shipping, no waiting a week.</p>
+        </div>
+        <div class="why-card">
+          <h3 class="why-card__title">Print any size</h3>
+          <p class="why-card__desc">One file, any size. Home printer, local shop, or online — your call.</p>
+        </div>
+        <div class="why-card">
+          <h3 class="why-card__title">Frame-ready</h3>
+          <p class="why-card__desc">Multiple ratios included that fit standard frames. No cropping surprises.</p>
+        </div>
+        <div class="why-card">
+          <h3 class="why-card__title">Curated taste</h3>
+          <p class="why-card__desc">Hand-picked antique botanicals, maps &amp; illustrations. A look, curated.</p>
+        </div>
+        <div class="why-card">
+          <h3 class="why-card__title">Gallery look, fraction of the price</h3>
+          <p class="why-card__desc">A whole gallery wall in one purchase — for the price of a coffee per print.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SINGLE PRINTS TEASER -->
+  <section class="singles-teaser" id="singles">
+    <div class="container singles-teaser__inner reveal-up">
+      <div class="singles-teaser__text">
+        <h2 class="section-title">Not ready for a full set?</h2>
+        <p class="singles-teaser__body">Grab a single print from any bundle — same quality, same ratios, smaller commitment. A great way to test the printing route before going all in on a gallery wall.</p>
+        <a href="store.html#singles" class="btn btn--primary">Browse single prints</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <!-- DEMOTED: ALSO FROM PANINI PANO — COLORING BOOKS       -->
+  <!-- ===================================================== -->
+  <section class="coloring-line" id="coloring">
+    <div class="container">
+      <div class="section-divider reveal-up">
+        <span class="section-divider__rule"></span>
+        <span class="section-divider__label">Also from Panini Pano</span>
+        <span class="section-divider__rule"></span>
+      </div>
+      <h2 class="section-title reveal-up">Coloring Books</h2>
+      <p class="section-subtitle reveal-up">Our original line — 9 paperbacks on Amazon and 10 digital PDF collections coming soon.</p>
+    </div>
+
+    <!-- THE BOOKS (kept) -->
+    <section class="books" id="books">
+      <div class="container">
+        <h3 class="coloring-sub-title reveal-up">The Books</h3>
+        <p class="section-subtitle reveal-up">Click a series to explore the collection.</p>
+
+        <div class="series-stacks" id="seriesStacks">
+
+          <div class="series-stack reveal-up" data-series="goodbye-stress">
+            <div class="series-stack__pile">
+              <img src="images/covers/B0GF7Q1D7Q_amazon.jpg" class="series-stack__card series-stack__card--3" alt="">
+              <img src="images/covers/B0G4VDQH92_amazon.jpg" class="series-stack__card series-stack__card--2" alt="">
+              <img src="images/covers/gs1_cover.jpg" class="series-stack__card series-stack__card--1" alt="">
+            </div>
+            <h4 class="series-stack__title">Goodbye Stress</h4>
+            <p class="series-stack__count">3 books</p>
+          </div>
+
+          <div class="series-stack reveal-up" data-series="adult-relaxation">
+            <div class="series-stack__pile">
+              <img src="images/covers/relax5_cover_web.jpg" class="series-stack__card series-stack__card--3" alt="">
+              <img src="images/covers/relax2_amazon.jpg" class="series-stack__card series-stack__card--2" alt="">
+              <img src="images/covers/relax1_amazon.jpg" class="series-stack__card series-stack__card--1" alt="">
+            </div>
+            <h4 class="series-stack__title">Adult Relaxation</h4>
+            <p class="series-stack__count">5 books</p>
+          </div>
+
+          <div class="series-stack reveal-up" data-series="kids">
+            <div class="series-stack__pile">
+              <img src="images/covers/toddler1_amazon.jpg" class="series-stack__card series-stack__card--1" alt="">
+            </div>
+            <h4 class="series-stack__title">Kids</h4>
+            <p class="series-stack__count">1 book</p>
+          </div>
+
+        </div>
+
+        <div class="spider-web" id="spiderWeb" style="display:none;">
+          <button class="spider-web__back" id="spiderBack">← Back to all series</button>
+          <h3 class="spider-web__series-title" id="spiderTitle"></h3>
+          <div class="spider-web__grid" id="spiderGrid"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <script type="application/json" id="bookData">
+    {
+      "goodbye-stress": [
+        { "title": "Nature Scenes & Animals", "img": "images/covers/gs1_cover.jpg", "desc": "Wander through peaceful forests, meadows, and nature scenes.", "url": "https://www.amazon.com/dp/B0G4QGNLLC" },
+        { "title": "Positive Symbols & Cozy Objects", "img": "images/covers/B0G4VDQH92_amazon.jpg", "desc": "Fill your world with warmth and symbols of calm.", "url": "https://www.amazon.com/dp/B0G4VDQH92" },
+        { "title": "Mandalas & Abstract Patterns", "img": "images/covers/B0GF7Q1D7Q_amazon.jpg", "desc": "Lose yourself in intricate mandalas. Our most detailed collection.", "url": "https://www.amazon.com/dp/B0G4PV25QN" }
+      ],
+      "adult-relaxation": [
+        { "title": "Earthal Geometry", "img": "images/covers/relax1_amazon.jpg", "desc": "Earth-inspired geometries for deep relaxation and creative flow.", "url": "https://www.amazon.com/dp/B0G82CSLNC" },
+        { "title": "Nature & Animals", "img": "images/covers/relax2_amazon.jpg", "desc": "Wander through stunning wildlife and landscapes in intricate detail.", "url": "https://www.amazon.com/dp/B0GF76VHH6" },
+        { "title": "Optical Illusions", "img": "images/covers/relax3_amazon.jpg", "desc": "Mind-bending patterns that transform as you add color.", "url": "https://www.amazon.com/dp/B0GDWX1HFS" },
+        { "title": "Creative Escape", "img": "images/covers/relax4_amazon.jpg", "desc": "A journey through imaginative worlds designed for true creative escape.", "url": "https://www.amazon.com/dp/B0GDYMVNKP" },
+        { "title": "Mindful Journey", "img": "images/covers/relax5_cover_web.jpg", "desc": "A mindful path through serene patterns crafted for stillness and presence.", "url": "https://www.amazon.com/dp/B0GF7NYY97" }
+      ],
+      "kids": [
+        { "title": "Baby's First Learning Book", "img": "images/covers/toddler1_amazon.jpg", "desc": "Bright, bold, and beautifully simple — a toddler's first coloring adventure.", "url": "https://www.amazon.com/dp/B0GHXBHD5K" }
+      ]
+    }
+    </script>
+
+    <!-- DIGITAL COLORING COLLECTIONS (kept) -->
+    <section class="collection collection--digital" id="digital-niches">
+      <div class="container">
+        <h3 class="coloring-sub-title reveal-up">Digital Coloring Collections</h3>
+        <p class="section-subtitle reveal-up">Instant download — print at home, color forever. Launching soon.</p>
+        <div class="collection__grid collection__grid--5 reveal-up">
+
+          <div class="card">
+            <div class="card__img-wrap">
+              <img src="images/covers/generated/cover_dark_botanicals.png" alt="Dark Botanicals" class="card__img">
+              <span class="card__badge">PDF Download</span>
+              <div class="card__shimmer"></div>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Dark Botanicals</h3>
+              <p class="card__desc">22 intricate pages</p>
+              <p class="card__price">&pound;4.99</p>
+              <div class="card__btn-wrap">
+                <button class="btn btn--primary btn--sm btn--notify" data-collection="dark-botanicals">Notify Me</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card__img-wrap">
+              <img src="images/covers/generated/cover_cottage_garden.png" alt="Cottage Garden" class="card__img">
+              <span class="card__badge">PDF Download</span>
+              <div class="card__shimmer"></div>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Cottage Garden</h3>
+              <p class="card__desc">23 pages of bloom</p>
+              <p class="card__price">&pound;4.99</p>
+              <div class="card__btn-wrap">
+                <button class="btn btn--primary btn--sm btn--notify" data-collection="cottage-garden">Notify Me</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card__img-wrap">
+              <img src="images/covers/generated/cover_tropical_exotic.png" alt="Tropical & Exotic" class="card__img">
+              <span class="card__badge">PDF Download</span>
+              <div class="card__shimmer"></div>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Tropical &amp; Exotic</h3>
+              <p class="card__desc">18 lush pages</p>
+              <p class="card__price">&pound;4.99</p>
+              <div class="card__btn-wrap">
+                <button class="btn btn--primary btn--sm btn--notify" data-collection="tropical-exotic">Notify Me</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card__img-wrap">
+              <img src="images/covers/generated/cover_mushroom_forest.png" alt="Mushroom Forest" class="card__img">
+              <span class="card__badge">PDF Download</span>
+              <div class="card__shimmer"></div>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Mushroom Forest</h3>
+              <p class="card__desc">18 enchanted pages</p>
+              <p class="card__price">&pound;4.99</p>
+              <div class="card__btn-wrap">
+                <button class="btn btn--primary btn--sm btn--notify" data-collection="mushroom-forest">Notify Me</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card__img-wrap">
+              <img src="images/covers/generated/cover_pressed_flower.png" alt="Pressed Flower" class="card__img">
+              <span class="card__badge">PDF Download</span>
+              <div class="card__shimmer"></div>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Pressed Flower</h3>
+              <p class="card__desc">19 Victorian pages</p>
+              <p class="card__price">&pound;4.99</p>
+              <div class="card__btn-wrap">
+                <button class="btn btn--primary btn--sm btn--notify" data-collection="pressed-flower">Notify Me</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="collection__grid collection__grid--5 reveal-up" style="margin-top:1.5rem">
+
+          <div class="card">
+            <div class="card__img-wrap">
+              <img src="images/covers/generated/cover_cat_sass.png" alt="Cat Sass" class="card__img">
+              <span class="card__badge">PDF Download</span>
+              <div class="card__shimmer"></div>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Cat Sass</h3>
+              <p class="card__desc">18 pages of purrfection</p>
+              <p class="card__price">&pound;4.99</p>
+              <div class="card__btn-wrap">
+                <button class="btn btn--primary btn--sm btn--notify" data-collection="cat-sass">Notify Me</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card__img-wrap">
+              <img src="images/covers/generated/cover_garden_swear.png" alt="Garden Humor" class="card__img">
+              <span class="card__badge">PDF Download</span>
+              <div class="card__shimmer"></div>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Garden Humor</h3>
+              <p class="card__desc">18 pages of chaos</p>
+              <p class="card__price">&pound;4.99</p>
+              <div class="card__btn-wrap">
+                <button class="btn btn--primary btn--sm btn--notify" data-collection="garden-humor">Notify Me</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card__img-wrap">
+              <img src="images/covers/generated/cover_monday_mood.png" alt="Monday Mood" class="card__img">
+              <span class="card__badge">PDF Download</span>
+              <div class="card__shimmer"></div>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Monday Mood</h3>
+              <p class="card__desc">16 relatable pages</p>
+              <p class="card__price">&pound;4.99</p>
+              <div class="card__btn-wrap">
+                <button class="btn btn--primary btn--sm btn--notify" data-collection="monday-mood">Notify Me</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card__img-wrap">
+              <img src="images/covers/generated/cover_wellness_swear.png" alt="Wellness Chaos" class="card__img">
+              <span class="card__badge">PDF Download</span>
+              <div class="card__shimmer"></div>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Wellness Chaos</h3>
+              <p class="card__desc">18 pages of balance</p>
+              <p class="card__price">&pound;4.99</p>
+              <div class="card__btn-wrap">
+                <button class="btn btn--primary btn--sm btn--notify" data-collection="wellness-chaos">Notify Me</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card__img-wrap">
+              <img src="images/covers/generated/cover_wine_swear.png" alt="Wine & Unwind" class="card__img">
+              <span class="card__badge">PDF Download</span>
+              <div class="card__shimmer"></div>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Wine &amp; Unwind</h3>
+              <p class="card__desc">18 pages of pour decisions</p>
+              <p class="card__price">&pound;4.99</p>
+              <div class="card__btn-wrap">
+                <button class="btn btn--primary btn--sm btn--notify" data-collection="wine-unwind">Notify Me</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Email capture modal -->
+        <div class="notify-modal" id="notifyModal" style="display:none">
+          <div class="notify-modal__backdrop"></div>
+          <div class="notify-modal__box">
+            <button class="notify-modal__close" aria-label="Close">&times;</button>
+            <h3 class="notify-modal__title">Get notified when it drops</h3>
+            <p class="notify-modal__desc">We'll email you the moment <strong id="notifyCollectionName">this collection</strong> is available for download.</p>
+            <form class="notify-modal__form" id="notifyForm">
+              <input type="email" class="notify-modal__input" id="notifyEmail" placeholder="your@email.com" required>
+              <input type="hidden" id="notifyCollection" value="">
+              <button type="submit" class="btn btn--primary">Notify Me</button>
+            </form>
+            <p class="notify-modal__success" id="notifySuccess" style="display:none">You're on the list. We'll let you know.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INSIDE THE BOOKS (kept) -->
+    <section class="inside" id="inside">
+      <div class="container">
+        <h3 class="coloring-sub-title reveal-up">Inside the Books</h3>
+        <p class="section-subtitle reveal-up">Real pages from every collection — click to zoom.</p>
+
+        <h4 class="inside__group-heading reveal-up">Paperback Collection</h4>
+        <div class="peek-grid reveal-up">
+          <div class="peek-book">
+            <h4 class="peek-book__title">Nature Scenes &amp; Animals</h4>
+            <div class="peek-book__pages">
+              <img src="images/peek/gs_nature_1.png" alt="Nature Scenes page" class="peek-img" loading="lazy">
+              <img src="images/peek/gs_nature_2.png" alt="Nature Scenes page" class="peek-img" loading="lazy">
+            </div>
+          </div>
+          <div class="peek-book">
+            <h4 class="peek-book__title">Positive Symbols</h4>
+            <div class="peek-book__pages">
+              <img src="images/peek/gs_symbols_1.png" alt="Positive Symbols page" class="peek-img" loading="lazy">
+              <img src="images/peek/gs_symbols_2.png" alt="Positive Symbols page" class="peek-img" loading="lazy">
+            </div>
+          </div>
+          <div class="peek-book">
+            <h4 class="peek-book__title">Mandalas &amp; Abstract</h4>
+            <div class="peek-book__pages">
+              <img src="images/peek/gs_mandalas_1.png" alt="Mandalas page" class="peek-img" loading="lazy">
+              <img src="images/peek/gs_mandalas_2.png" alt="Mandalas page" class="peek-img" loading="lazy">
+            </div>
+          </div>
+          <div class="peek-book">
+            <h4 class="peek-book__title">Earthal Geometry</h4>
+            <div class="peek-book__pages">
+              <img src="images/peek/earthal_1.jpg" alt="Earthal Geometry page" class="peek-img" loading="lazy">
+              <img src="images/peek/earthal_2.jpg" alt="Earthal Geometry page" class="peek-img" loading="lazy">
+            </div>
+          </div>
+          <div class="peek-book">
+            <h4 class="peek-book__title">Nature &amp; Animals</h4>
+            <div class="peek-book__pages">
+              <img src="images/peek/nature_1.jpg" alt="Nature Animals page" class="peek-img" loading="lazy">
+              <img src="images/peek/nature_2.jpg" alt="Nature Animals page" class="peek-img" loading="lazy">
+            </div>
+          </div>
+          <div class="peek-book">
+            <h4 class="peek-book__title">Optical Illusions</h4>
+            <div class="peek-book__pages">
+              <img src="images/peek/optical_1.jpg" alt="Optical Illusions page" class="peek-img" loading="lazy">
+              <img src="images/peek/optical_2.jpg" alt="Optical Illusions page" class="peek-img" loading="lazy">
+            </div>
+          </div>
+          <div class="peek-book">
+            <h4 class="peek-book__title">Creative Escape</h4>
+            <div class="peek-book__pages">
+              <img src="images/peek/creative_1.jpg" alt="Creative Escape page" class="peek-img" loading="lazy">
+              <img src="images/peek/creative_2.jpg" alt="Creative Escape page" class="peek-img" loading="lazy">
+            </div>
+          </div>
+          <div class="peek-book">
+            <h4 class="peek-book__title">Mindful Journey</h4>
+            <div class="peek-book__pages">
+              <img src="images/peek/mindful_1.jpg" alt="Mindful Journey page" class="peek-img" loading="lazy">
+              <img src="images/peek/mindful_2.jpg" alt="Mindful Journey page" class="peek-img" loading="lazy">
+            </div>
+          </div>
+          <div class="peek-book">
+            <h4 class="peek-book__title">Baby's First Learning</h4>
+            <div class="peek-book__pages">
+              <img src="images/peek/toddler_1.jpg" alt="Toddler book page" class="peek-img" loading="lazy">
+              <img src="images/peek/toddler_2.jpg" alt="Toddler book page" class="peek-img" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <h4 class="inside__group-heading reveal-up" style="margin-top:3rem">Digital Collections</h4>
+        <div class="teaser-grid reveal-up">
+          <div class="teaser-group">
+            <h4 class="teaser-group__title">Dark Botanicals</h4>
+            <div class="teaser-group__images">
+              <img src="images/pdf-ready/bot-dark-botanicals/013_belladonna_gothic.png" alt="Dark Botanicals sample" loading="lazy">
+              <img src="images/pdf-ready/bot-dark-botanicals/014_black_rose_thorns.png" alt="Dark Botanicals sample" loading="lazy">
+            </div>
+          </div>
+          <div class="teaser-group">
+            <h4 class="teaser-group__title">Cottage Garden</h4>
+            <div class="teaser-group__images">
+              <img src="images/pdf-ready/bot-cottage-garden/013_hollyhock_wall.png" alt="Cottage Garden sample" loading="lazy">
+              <img src="images/pdf-ready/bot-cottage-garden/014_lavender_path.png" alt="Cottage Garden sample" loading="lazy">
+            </div>
+          </div>
+          <div class="teaser-group">
+            <h4 class="teaser-group__title">Mushroom Forest</h4>
+            <div class="teaser-group__images">
+              <img src="images/pdf-ready/bot-mushroom-forest/013_oyster_mushrooms.png" alt="Mushroom Forest sample" loading="lazy">
+              <img src="images/pdf-ready/bot-mushroom-forest/014_fairy_circle.png" alt="Mushroom Forest sample" loading="lazy">
+            </div>
+          </div>
+          <div class="teaser-group">
+            <h4 class="teaser-group__title">Wine Swear</h4>
+            <div class="teaser-group__images">
+              <img src="images/pdf-ready/swe-wine-swear/013_wine_book_club.png" alt="Wine Swear sample" loading="lazy">
+              <img src="images/pdf-ready/swe-wine-swear/015_wine_yoga.png" alt="Wine Swear sample" loading="lazy">
+            </div>
+          </div>
+          <div class="teaser-group">
+            <h4 class="teaser-group__title">Cat Sass</h4>
+            <div class="teaser-group__images">
+              <img src="images/pdf-ready/swe-cat-sass/013_monday_cat.png" alt="Cat Sass sample" loading="lazy">
+              <img src="images/pdf-ready/swe-cat-sass/014_nap_expert.png" alt="Cat Sass sample" loading="lazy">
+            </div>
+          </div>
+          <div class="teaser-group">
+            <h4 class="teaser-group__title">Trippy Psychedelic</h4>
+            <div class="teaser-group__images">
+              <img src="images/pdf-ready/psy-trippy-psychedelic/001_sacred_geometry_portal.png" alt="Trippy sample" loading="lazy">
+              <img src="images/pdf-ready/psy-trippy-psychedelic/002_fractal_mushroom_temple.png" alt="Trippy sample" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IN MOTION (kept) -->
+    <section class="process" id="process">
+      <div class="container">
+        <h3 class="coloring-sub-title reveal-up">In Motion</h3>
+        <p class="process__sub reveal-up">Watch your next favourite page come to life.</p>
+
+        <div class="series-rows reveal-up">
+
+          <div class="series-row">
+            <div class="series-row__header">
+              <h3 class="series-row__title">Goodbye Stress</h3>
+              <span class="series-row__count">3 books</span>
+            </div>
+            <div class="series-row__outer">
+              <button class="series-row__arrow series-row__arrow--left" aria-label="Scroll left">&#8249;</button>
+              <div class="series-row__track">
+                <a href="https://www.amazon.com/dp/B0G4QGNLLC" target="_blank" rel="noopener" class="promo-video-card">
+                  <div class="promo-video-wrap"><video autoplay muted loop playsinline><source src="images/generated/video/book-promos/goodbye_stress_vol1_30sec.mp4" type="video/mp4"></video></div>
+                  <div class="promo-video-info"><span class="promo-video-tag">Bestseller &middot; Amazon</span><h3>Vol 1 &mdash; Nature Scenes</h3><p>Peaceful forests, meadows &amp; animals</p><span class="promo-video-cta">View on Amazon &rarr;</span></div>
+                </a>
+                <a href="https://www.amazon.com/dp/B0G4VDQH92" target="_blank" rel="noopener" class="promo-video-card">
+                  <div class="promo-video-wrap"><video autoplay muted loop playsinline><source src="images/generated/video/book-promos/goodbye_stress_vol2_symbols_30sec.mp4" type="video/mp4"></video></div>
+                  <div class="promo-video-info"><span class="promo-video-tag">Amazon</span><h3>Vol 2 &mdash; Positive Symbols</h3><p>Warmth &amp; symbols of calm</p><span class="promo-video-cta">View on Amazon &rarr;</span></div>
+                </a>
+                <a href="https://www.amazon.com/dp/B0G4PV25QN" target="_blank" rel="noopener" class="promo-video-card">
+                  <div class="promo-video-wrap"><video autoplay muted loop playsinline><source src="images/generated/video/book-promos/goodbye_stress_vol3_mandalas_30sec.mp4" type="video/mp4"></video></div>
+                  <div class="promo-video-info"><span class="promo-video-tag">Most Detailed &middot; Amazon</span><h3>Vol 3 &mdash; Mandalas</h3><p>Intricate mandalas &amp; abstract patterns</p><span class="promo-video-cta">View on Amazon &rarr;</span></div>
+                </a>
+              </div>
+              <button class="series-row__arrow series-row__arrow--right" aria-label="Scroll right">&#8250;</button>
+            </div>
+          </div>
+
+          <div class="series-row">
+            <div class="series-row__header">
+              <h3 class="series-row__title">Adult Relaxation</h3>
+              <span class="series-row__count">5 books</span>
+            </div>
+            <div class="series-row__outer">
+              <button class="series-row__arrow series-row__arrow--left" aria-label="Scroll left">&#8249;</button>
+              <div class="series-row__track">
+                <a href="https://www.amazon.com/dp/B0G82CSLNC" target="_blank" rel="noopener" class="promo-video-card">
+                  <div class="promo-video-wrap"><video autoplay muted loop playsinline><source src="images/generated/video/book-promos/relaxation_vol1_geometry_30sec.mp4" type="video/mp4"></video></div>
+                  <div class="promo-video-info"><span class="promo-video-tag">Amazon</span><h3>Vol 1 &mdash; Earthal Geometry</h3><p>Earth-inspired geometries for deep relaxation</p><span class="promo-video-cta">View on Amazon &rarr;</span></div>
+                </a>
+                <a href="https://www.amazon.com/dp/B0GF76VHH6" target="_blank" rel="noopener" class="promo-video-card">
+                  <div class="promo-video-wrap"><video autoplay muted loop playsinline><source src="images/generated/video/book-promos/relaxation_vol2_nature_30sec.mp4" type="video/mp4"></video></div>
+                  <div class="promo-video-info"><span class="promo-video-tag">New &middot; Amazon</span><h3>Vol 2 &mdash; Nature &amp; Animals</h3><p>Stunning wildlife &amp; landscapes</p><span class="promo-video-cta">View on Amazon &rarr;</span></div>
+                </a>
+                <a href="https://www.amazon.com/dp/B0GDWX1HFS" target="_blank" rel="noopener" class="promo-video-card">
+                  <div class="promo-video-wrap"><video autoplay muted loop playsinline><source src="images/generated/video/book-promos/relaxation_vol3_optical_30sec.mp4" type="video/mp4"></video></div>
+                  <div class="promo-video-info"><span class="promo-video-tag">Amazon</span><h3>Vol 3 &mdash; Optical Illusions</h3><p>Mind-bending patterns that transform as you colour</p><span class="promo-video-cta">View on Amazon &rarr;</span></div>
+                </a>
+                <a href="https://www.amazon.com/dp/B0GDYMVNKP" target="_blank" rel="noopener" class="promo-video-card">
+                  <div class="promo-video-wrap"><video autoplay muted loop playsinline><source src="images/generated/video/book-promos/relaxation_vol4_creative_escape_30sec.mp4" type="video/mp4"></video></div>
+                  <div class="promo-video-info"><span class="promo-video-tag">Amazon</span><h3>Vol 4 &mdash; Creative Escape</h3><p>Journey through imaginative worlds</p><span class="promo-video-cta">View on Amazon &rarr;</span></div>
+                </a>
+                <a href="https://www.amazon.com/dp/B0GF7NYY97" target="_blank" rel="noopener" class="promo-video-card promo-video-card--img">
+                  <div class="promo-video-wrap"><img src="images/covers/relax5_cover_web.jpg" alt="Mindful Journey" loading="lazy"></div>
+                  <div class="promo-video-info"><span class="promo-video-tag">Amazon</span><h3>Vol 5 &mdash; Mindful Journey</h3><p>Serene patterns crafted for stillness &amp; presence</p><span class="promo-video-cta">View on Amazon &rarr;</span></div>
+                </a>
+              </div>
+              <button class="series-row__arrow series-row__arrow--right" aria-label="Scroll right">&#8250;</button>
+            </div>
+          </div>
+
+          <div class="series-row">
+            <div class="series-row__header">
+              <h3 class="series-row__title">Kids</h3>
+              <span class="series-row__count">1 book</span>
+            </div>
+            <div class="series-row__outer">
+              <button class="series-row__arrow series-row__arrow--left" aria-label="Scroll left">&#8249;</button>
+              <div class="series-row__track">
+                <a href="https://www.amazon.com/dp/B0GHXBHD5K" target="_blank" rel="noopener" class="promo-video-card">
+                  <div class="promo-video-wrap"><video autoplay muted loop playsinline><source src="images/generated/video/book-promos/toddler_baby_learning_v2_30sec.mp4" type="video/mp4"></video></div>
+                  <div class="promo-video-info"><span class="promo-video-tag">For Kids &middot; Amazon</span><h3>Baby&rsquo;s First Learning</h3><p>Toddler Coloring Book &mdash; Paperback</p><span class="promo-video-cta">View on Amazon &rarr;</span></div>
+                </a>
+              </div>
+              <button class="series-row__arrow series-row__arrow--right" aria-label="Scroll right">&#8250;</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="container coloring-amazon-cta reveal-up">
+      <a href="https://www.amazon.com/stores/Panini-Pano/author/B0GCRJH71D/allbooks" target="_blank" rel="noopener" class="btn btn--ghost">Shop coloring books on Amazon →</a>
+    </div>
+  </section>
+  <!-- /coloring-line -->
+
+  <!-- REVIEWS (intentionally empty — never fabricated) -->
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <h2 class="section-title reveal-up">Reviews</h2>
+      <p class="reviews__empty reveal-up">Real reviews land here as customers share their walls. We don't fabricate testimonials. Tag <strong>@PaniniPanoOfficial</strong> on Instagram or TikTok and yours may show up here.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <h2 class="section-title reveal-up">Frequently Asked Questions</h2>
+
+      <h3 class="faq__group reveal-up">Wall art</h3>
+      <div class="faq__list reveal-up">
+        <details class="faq__item">
+          <summary class="faq__question">How fast do I get my files?</summary>
+          <p class="faq__answer">Instantly. Right after checkout you get a download link to a ZIP of high-res files — no shipping, no waiting.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">What format and resolution are the files?</summary>
+          <p class="faq__answer">High-res JPG and PDF at 300 DPI, sized to the largest frame in each ratio family. Every print is delivered in four ratios: 2:3, 3:4, 4:5, and ISO/A-series.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">What sizes can I print? Will they fit my frame?</summary>
+          <p class="faq__answer">Yes. The four included ratios cover the most common frame sizes: 8×10, 11×14, 16×20, 18×24, 24×36, plus A4 and A3. See the Sizes &amp; frames section above for the full list.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">Where can I print them?</summary>
+          <p class="faq__answer">Anywhere. Home printer (matte cardstock 200gsm+ looks great), local print shop (Staples, FedEx Office), or an online printer (Printful, Walmart Photo, Mpix, Posterjack). For best results print at the listed sizes or below.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">What can I use the prints for? Personal or commercial?</summary>
+          <p class="faq__answer">Personal use license — print as many copies as you like for your own home, gifts, or single-room decor. Commercial / resale is not included. (Full license text in the footer.)</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">What's your refund policy?</summary>
+          <p class="faq__answer">Because every order is an instant digital download, sales are final once files are delivered. If something is wrong with the files or you can't access your download, email us and we'll fix it.</p>
+        </details>
+      </div>
+
+      <h3 class="faq__group reveal-up" style="margin-top:3rem">Coloring books</h3>
+      <div class="faq__list reveal-up">
+        <details class="faq__item">
+          <summary class="faq__question">What makes Panini Pano coloring books different?</summary>
+          <p class="faq__answer">Every page is hand-designed for adult-level detail — intricate line work, varied themes (nature, mandalas, optical illusions, humor), and premium single-sided paper. Each book has 18–28 unique designs with no repeats.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">Paperback vs. digital PDF collections — what's the difference?</summary>
+          <p class="faq__answer">Our 9 paperback books are printed on premium single-sided paper and ship via Amazon. The 10 digital PDF collections (launching) are instant-download files you print at home — color as many copies as you like, forever.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">Can I use markers or gel pens?</summary>
+          <p class="faq__answer">Yes. Paperbacks use single-sided printing so markers won't bleed through to the next design. For digital PDFs, we recommend 120gsm+ cardstock for markers and watercolors.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">When will the digital PDF collections be available?</summary>
+          <p class="faq__answer">Soon. Click "Notify Me" on any digital collection above and we'll email you the moment it's ready. Early subscribers get a launch discount.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container cta__inner reveal-up">
+      <p class="cta__tagline">Grab it and go slow.</p>
+      <p class="cta__social">Find us <strong>@PaniniPanoOfficial</strong> on Instagram and TikTok</p>
+      <a href="store.html" class="btn btn--primary btn--lg">Shop the store</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col footer__col--brand">
+          <a href="/" class="footer__logo">Panini Pano</a>
+          <p class="footer__tagline">Grab it and go slow. Vintage wall art &amp; coloring books.</p>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__heading">Wall Art</h4>
+          <ul class="footer__list">
+            <li><a href="store.html">Store</a></li>
+            <li><a href="bundles/botanists-kitchen.html">The Botanist's Kitchen</a></li>
+            <li><a href="bundles/antique-cosmos.html">Antique Cosmos</a></li>
+            <li><a href="#how">How it works</a></li>
+            <li><a href="#frames">Sizes &amp; frames</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__heading">Coloring</h4>
+          <ul class="footer__list">
+            <li><a href="#coloring">Coloring line</a></li>
+            <li><a href="https://www.amazon.com/stores/Panini-Pano/author/B0GCRJH71D/allbooks" target="_blank" rel="noopener">Books on Amazon</a></li>
+            <li><a href="#digital-niches">Digital PDFs</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__heading">Help &amp; Legal</h4>
+          <ul class="footer__list">
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="/license.html">License</a></li>
+            <li><a href="/privacy.html">Privacy</a></li>
+            <li><a href="mailto:hello@panini-pano.com">Contact</a></li>
+            <li><a href="https://www.instagram.com/PaniniPanoOfficial" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.tiktok.com/@PaniniPanoOfficial" target="_blank" rel="noopener">TikTok</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>Panini Pano &copy; 2026 — Vintage prints, instant download. All artwork for personal use.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX (reused) -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <div class="lightbox__backdrop" id="lightboxBackdrop"></div>
+    <div class="lightbox__content">
+      <button class="lightbox__close" id="lightboxClose" aria-label="Close">&times;</button>
+      <button class="lightbox__arrow lightbox__arrow--prev" id="lightboxPrev" aria-label="Previous image">&#8249;</button>
+      <div class="lightbox__img-wrap">
+        <img class="lightbox__img" id="lightboxImg" src="" alt="">
+        <div class="lightbox__spinner" id="lightboxSpinner"></div>
+      </div>
+      <button class="lightbox__arrow lightbox__arrow--next" id="lightboxNext" aria-label="Next image">&#8250;</button>
+      <div class="lightbox__counter" id="lightboxCounter"></div>
+    </div>
+  </div>
+
+  <!-- T7: cart-drawer (skeleton — no logic yet) -->
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartDrawerTitle" aria-hidden="true">
+    <div class="cart-drawer__backdrop" data-cart-close></div>
+    <div class="cart-drawer__panel">
+      <header class="cart-drawer__header">
+        <h2 class="cart-drawer__title" id="cartDrawerTitle">Your cart</h2>
+        <button class="cart-drawer__close" aria-label="Close cart" data-cart-close>&times;</button>
+      </header>
+      <div class="cart-drawer__body" data-cart-items>
+        <!-- T7: cart line items render here -->
+        <p class="cart-drawer__empty">Your cart is empty.</p>
+      </div>
+      <footer class="cart-drawer__footer">
+        <div class="cart-drawer__row">
+          <span>Subtotal</span>
+          <span data-cart-subtotal>$0.00</span>
+        </div>
+        <!-- T7: wire to /api/cart + checkout hand-off (Whop) -->
+        <button class="btn btn--primary cart-drawer__checkout" data-cart-checkout disabled>Checkout</button>
+        <p class="cart-drawer__note">Secure checkout · Instant download after purchase</p>
+      </footer>
+    </div>
+  </aside>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 4L4 12h12L10 4z" fill="currentColor"/>
+    </svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>

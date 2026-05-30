@@ -1,0 +1,37 @@
+# Local-dev convenience compose. NOT what Coolify uses — Coolify reads
+# the root Dockerfile + its own Traefik labels. This file lets you test
+# the full container locally before Ken triggers the Coolify deploy.
+#
+#   $ cd <repo root>
+#   $ docker compose -f server/docker-compose.yml up --build
+#   $ open http://localhost:3030
+#
+# To verify Whop webhook locally:
+#   $ ngrok http 3030
+#   # set WHOP_WEBHOOK_SECRET in Whop dashboard against the ngrok URL.
+
+services:
+  paninipano:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    ports:
+      - "3030:3030"
+    environment:
+      NODE_ENV: production
+      PORT: 3030
+      PUBLIC_BASE_URL: http://localhost:3030
+      DATA_DIR: /data
+      # Basic-auth disabled in local dev for convenience.
+      DISABLE_BASIC_AUTH: "true"
+      DOWNLOAD_SIGNING_SECRET: "local-dev-secret-rotate-in-prod-32chars+"
+      DOWNLOAD_TOKEN_TTL_HOURS: "24"
+      # Whop stub mode (keys absent → /api/checkout/whop returns stub URL).
+      WHOP_API_KEY: ""
+      WHOP_WEBHOOK_SECRET: ""
+      WHOP_BUNDLE_PRODUCT_MAP_JSON: "{}"
+    volumes:
+      - paninipano-data:/data
+
+volumes:
+  paninipano-data:
