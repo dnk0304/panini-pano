@@ -30,7 +30,22 @@ const siteRoot = path.resolve(__dirname, '..', '..', '..');
 const copyPath = process.env.ETSY_COPY_PATH ?? path.join(siteRoot, 'etsy-listings-copy.json');
 const manifestPath = path.resolve(__dirname, '..', '..', 'data', 'etsy-packages', 'packages-manifest.json');
 
-interface CopyEntry { slug?: string; title: string; description: string; tags: string[]; price: number }
+interface CopyEntry {
+  slug?: string;
+  /** Marketing's delivered file keys entries by `id` (== pack slug). */
+  id?: string;
+  type?: string;
+  title: string;
+  description: string;
+  tags: string[];
+  price?: number;
+  /** Marketing's delivered file uses price_usd. */
+  price_usd?: number;
+}
+
+function priceOf(e: CopyEntry): number | undefined {
+  return typeof e.price === 'number' ? e.price : e.price_usd;
+}
 interface PackEntry {
   slug: string; title: string; files: number;
   parts: Array<{ file: string; bytes: number }>;
@@ -44,7 +59,7 @@ const VIDEO_BY_BUNDLE: Record<string, string> = {
 };
 
 function videoForPack(slug: string): string | undefined {
-  const key = slug.startsWith('cosmos') ? 'cosmos' : slug.startsWith('kitchen') ? 'kitchen' : 'mega';
+  const key = slug.startsWith('antique-cosmos') ? 'cosmos' : slug.startsWith('botanists-kitchen') ? 'kitchen' : 'mega';
   const p = VIDEO_BY_BUNDLE[key];
   return p && fs.existsSync(p) ? p : undefined;
 }
@@ -55,7 +70,8 @@ function loadCopy(): Map<string, CopyEntry> | null {
   const map = new Map<string, CopyEntry>();
   if (Array.isArray((raw as { listings?: unknown }).listings)) {
     for (const e of (raw as { listings: CopyEntry[] }).listings) {
-      if (e.slug) map.set(e.slug, e);
+      const key = e.slug ?? e.id;
+      if (key) map.set(key, e);
     }
   } else {
     for (const [slug, e] of Object.entries(raw as Record<string, CopyEntry>)) map.set(slug, e);
@@ -69,7 +85,11 @@ function validateEntry(slug: string, e: CopyEntry | undefined): string[] {
   if (!e.title || e.title.length > 140) gaps.push(`${slug}: title missing or >140 chars`);
   if (!e.description) gaps.push(`${slug}: description missing`);
   if (!Array.isArray(e.tags) || e.tags.length === 0 || e.tags.length > 13) gaps.push(`${slug}: needs 1-13 tags (has ${e.tags?.length ?? 0})`);
-  if (typeof e.price !== 'number' || e.price < 0.2) gaps.push(`${slug}: invalid price`);
+  for (const t of e.tags ?? []) {
+    if (t.length > 20) gaps.push(`${slug}: tag "${t}" is ${t.length} chars (Etsy max 20)`);
+  }
+  const price = priceOf(e);
+  if (typeof price !== 'number' || price < 0.2) gaps.push(`${slug}: invalid price`);
   return gaps;
 }
 
@@ -80,14 +100,14 @@ async function pushOne(shopId: number, taxonomyId: number, slug: string, copy: C
   if (!rec) {
     const { listing_id } = await createDraftListing(shopId, {
       title: copy.title, description: copy.description, tags: copy.tags,
-      price: copy.price, taxonomy_id: taxonomyId,
+      price: priceOf(copy)!, taxonomy_id: taxonomyId,
     });
     rec = { listing_id, created_at: new Date().toISOString(), images_uploaded: [], files_uploaded: [] };
     map[slug] = rec; saveListingMap(map);
     console.log(`  created draft ${listing_id}`);
   } else {
     await updateListing(shopId, rec.listing_id, {
-      title: copy.title, description: copy.description, tags: copy.tags, price: copy.price,
+      title: copy.title, description: copy.description, tags: copy.tags, price: priceOf(copy)!,
     });
     console.log(`  updated draft ${rec.listing_id}`);
   }

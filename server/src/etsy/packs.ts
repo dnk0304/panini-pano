@@ -2,14 +2,15 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 /**
- * Themed pack definitions — Dennis-approved plan (2026-06-11 competitor scan):
- * 8 themed packs of 10-15 wallpaper files (2-3 prints x 5 ratios) + 1 mega
- * bundle. Themes inferred from print slugs in images/bundles/manifest.json.
+ * Pack definitions — aligned 1:1 with Marketing's etsy-listings-copy.json
+ * (2026-06-11, WALL-ART ONLY scope: coloring books are off Etsy). Slugs ==
+ * copy `id`s. Copy promises "4 frame-ready ratios per print" so master
+ * crops are NOT delivered (they're huge and unadvertised).
  *
- * "File" = one ratio crop (2x3 / 3x4 / 4x5 / iso / master) of one print.
+ * "File" = one ratio crop (2x3 / 3x4 / 4x5 / iso) of one print.
  */
 
-export const RATIOS = ['2x3', '3x4', '4x5', 'iso', 'master'] as const;
+export const RATIOS = ['2x3', '3x4', '4x5', 'iso'] as const;
 export type Ratio = (typeof RATIOS)[number];
 
 export interface PackDef {
@@ -22,15 +23,13 @@ export interface PackDef {
 }
 
 export const PACKS: PackDef[] = [
-  { slug: 'cosmos-celestial-charts', title: 'Celestial Charts', bundle: 'antique-cosmos', printNumbers: [1, 2, 3] },
-  { slug: 'cosmos-constellations', title: 'Constellations & Zodiac', bundle: 'antique-cosmos', printNumbers: [5, 6, 7] },
-  { slug: 'cosmos-instruments', title: 'Astronomical Instruments', bundle: 'antique-cosmos', printNumbers: [4, 10] },
-  { slug: 'cosmos-night-sky', title: 'Comets & Lunar Plates', bundle: 'antique-cosmos', printNumbers: [8, 9] },
-  { slug: 'kitchen-herbs', title: 'Kitchen Herbs', bundle: 'botanists-kitchen', printNumbers: [1, 2, 3] },
-  { slug: 'kitchen-garden-aromatics', title: 'Garden Aromatics', bundle: 'botanists-kitchen', printNumbers: [4, 7, 11] },
-  { slug: 'kitchen-orchard-fruits', title: 'Orchard & Fruits', bundle: 'botanists-kitchen', printNumbers: [5, 6, 12] },
-  { slug: 'kitchen-pantry', title: 'Pantry Botanicals', bundle: 'botanists-kitchen', printNumbers: [8, 9, 10] },
-  { slug: 'mega-bundle', title: 'Complete Collection (All 22 Prints)', bundle: 'all', printNumbers: [] },
+  { slug: 'antique-cosmos-full', title: 'Vintage Celestial Set of 10', bundle: 'antique-cosmos', printNumbers: [] },
+  { slug: 'antique-cosmos-starmaps', title: 'Star Map Set of 5', bundle: 'antique-cosmos', printNumbers: [2, 5, 6, 7, 10] },
+  { slug: 'antique-cosmos-moonsun', title: 'Moon & Sun Set of 5', bundle: 'antique-cosmos', printNumbers: [1, 3, 4, 8, 9] },
+  { slug: 'botanists-kitchen-full', title: 'Botanical Kitchen Set of 12', bundle: 'botanists-kitchen', printNumbers: [] },
+  { slug: 'botanists-kitchen-herbs', title: 'Herb Set of 5', bundle: 'botanists-kitchen', printNumbers: [1, 2, 3, 4, 11] },
+  { slug: 'botanists-kitchen-garden', title: 'Garden & Orchard Set of 7', bundle: 'botanists-kitchen', printNumbers: [5, 6, 7, 8, 9, 10, 12] },
+  { slug: 'heritage-mega-bundle', title: 'Heritage Mega Bundle (All 22 Prints)', bundle: 'all', printNumbers: [] },
 ];
 
 interface BundleManifest {
@@ -86,10 +85,13 @@ export function resolvePacks(siteRoot: string): ResolvedPack[] {
       }
 
       for (const print of prints) {
-        const all: Array<[Ratio, string]> = [
-          ...Object.entries(print.crops).map(([r, rel]) => [r as Ratio, rel] as [Ratio, string]),
-          ['master', print.master],
-        ];
+        // Deliver only the advertised ratio crops — master is intentionally excluded.
+        const all: Array<[Ratio, string]> = Object.entries(print.crops)
+          .filter(([r]) => (RATIOS as readonly string[]).includes(r))
+          .map(([r, rel]) => [r as Ratio, rel] as [Ratio, string]);
+        if (all.length !== RATIOS.length) {
+          fail(`print ${print.slug}: expected ratios ${RATIOS.join(',')} in manifest crops, got ${Object.keys(print.crops).join(',')}`);
+        }
         for (const [ratio, rel] of all) {
           const src = path.join(bundlesDir, rel);
           if (!fs.existsSync(src)) fail(`missing source file: ${src}`);
