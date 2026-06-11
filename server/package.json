@@ -11,7 +11,11 @@
     "dev": "tsx watch src/index.ts",
     "migrate": "tsx src/db/migrate.ts",
     "seed": "tsx src/db/seed.ts",
-    "test:package": "tsx src/scripts/test-package.ts"
+    "test:package": "tsx src/scripts/test-package.ts",
+    "etsy:oauth": "tsx src/scripts/etsy-oauth.ts",
+    "etsy:package": "tsx src/scripts/etsy-package.ts",
+    "etsy:push": "tsx src/scripts/etsy-push.ts",
+    "etsy:coloring-pdfs": "tsx src/scripts/compile-coloring-pdfs.ts"
   },
   "engines": {
     "node": ">=20.0.0"
